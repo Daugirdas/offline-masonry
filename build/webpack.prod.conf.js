@@ -105,6 +105,12 @@ var webpackConfig = merge(baseWebpackConfig, {
       cacheId: 'my-vue-app',
       filename: 'service-worker.js',
       staticFileGlobs: ['dist/**/*.{js,html,css}'],
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/res\.cloudinary\.com\//,
+          handler: 'cacheFirst'
+        }
+      ],
       minify: true,
       stripPrefix: 'dist/'
     })
